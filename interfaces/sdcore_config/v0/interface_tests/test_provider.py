@@ -49,7 +49,6 @@ def test_no_data_on_broken():
     relation = Relation(
         endpoint="sdcore_config",
         interface="sdcore_config",
-        local_app_data=valid_app_data,
     )
 
     t = Tester(State(relations=[relation]))
