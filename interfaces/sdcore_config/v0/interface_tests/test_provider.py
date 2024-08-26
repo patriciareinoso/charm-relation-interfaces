@@ -43,7 +43,9 @@ def test_data_published_on_joined():
 
 
 def test_no_data_on_broken():
-    valid_app_data["webui_url"] = json.dumps("sdcore-webui-k8s:9876")
+    valid_app_data = {
+        "webui_url": "sdcore-webui-k8s:9876",
+    }
     relation = Relation(
         endpoint="sdcore_config",
         interface="sdcore_config",
