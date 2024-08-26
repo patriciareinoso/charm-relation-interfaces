@@ -3,6 +3,7 @@
 
 from interface_tester import Tester
 from scenario import State, Relation
+import json
 
 
 def test_no_data_on_created():
@@ -41,9 +42,8 @@ def test_data_published_on_joined():
     t.assert_schema_valid()
 
 
-
-def test_data_published_on_changed():
-    valid_app_data = "sdcore-webui-k8s:1234"
+def test_no_data_on_broken():
+    valid_app_data["webui_url"] = json.dumps("sdcore-webui-k8s:9876")
     t = Tester(
         State(
             relations=[
@@ -55,23 +55,5 @@ def test_data_published_on_changed():
             ],
         )
     )
-    state_out: State = t.run("sdcore-config-relation-changed")
-    t.assert_schema_valid()
-
-"""
-def test_no_data_on_broken():
-    t = Tester(
-        State(
-            relations=[
-                Relation(
-                    endpoint="sdcore_config",
-                    interface="sdcore_config",
-                )
-            ],
-        )
-    )
     state_out: State = t.run("sdcore-config-relation-broken")
     t.assert_relation_data_empty()
-    assert state_out.unit_status.name == 'active'
-
-"""
