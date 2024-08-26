@@ -44,16 +44,12 @@ def test_data_published_on_joined():
 
 def test_no_data_on_broken():
     valid_app_data["webui_url"] = json.dumps("sdcore-webui-k8s:9876")
-    t = Tester(
-        State(
-            relations=[
-                Relation(
-                    endpoint="sdcore_config",
-                    interface="sdcore_config",
-                    local_app_data=valid_app_data,
-                )
-            ],
-        )
+    relation = Relation(
+        endpoint="sdcore_config",
+        interface="sdcore_config",
+        local_app_data=valid_app_data,
     )
+
+    t = Tester(State(relations=[relation]))
     state_out: State = t.run("sdcore-config-relation-broken")
     t.assert_relation_data_empty()
