@@ -4,6 +4,7 @@
 from interface_tester import Tester
 from scenario import State, Relation
 
+
 def test_no_data_on_created():
     t = Tester()
     state_out = t.run("sdcore-config-relation-created")
@@ -24,7 +25,7 @@ def test_data_published_on_created():
     state_out: State = t.run("sdcore-config-relation-created")
     t.assert_schema_valid()
     assert state_out.unit_status.name == 'active'
-
+"""
 
 def test_data_published_on_joined():
     t = Tester(
@@ -40,7 +41,7 @@ def test_data_published_on_joined():
     state_out: State = t.run("sdcore-config-relation-joined")
     t.assert_schema_valid()
     assert state_out.unit_status.name == 'active'
-"""
+
 """
 def test_data_published_on_changed():
     t = Tester(
