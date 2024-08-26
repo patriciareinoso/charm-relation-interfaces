@@ -43,12 +43,14 @@ def test_data_published_on_joined():
 
 
 def test_data_published_on_changed():
+    valid_app_data = "sdcore-webui-k8s:1234"
     t = Tester(
         State(
             relations=[
                 Relation(
                     endpoint="sdcore_config",
                     interface="sdcore_config",
+                    local_app_data=valid_app_data,
                 )
             ],
         )
