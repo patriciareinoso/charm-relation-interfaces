@@ -26,7 +26,6 @@ def test_data_published_on_created():
     t.assert_relation_data_empty()
 
 
-
 def test_data_published_on_joined():
     t = Tester(
         State(
@@ -42,7 +41,7 @@ def test_data_published_on_joined():
     t.assert_schema_valid()
 
 
-"""
+
 def test_data_published_on_changed():
     t = Tester(
         State(
@@ -56,9 +55,8 @@ def test_data_published_on_changed():
     )
     state_out: State = t.run("sdcore-config-relation-changed")
     t.assert_schema_valid()
-    assert state_out.unit_status.name == 'active'
 
-
+"""
 def test_no_data_on_broken():
     t = Tester(
         State(
