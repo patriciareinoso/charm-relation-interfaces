@@ -2,17 +2,18 @@ name: sdcore_config
 internal: true
 
 version: 0
-status: draft
+status: published
 
 providers:
   - name: sdcore-nms-k8s
     url: https://github.com/canonical/sdcore-nms-k8s-operator
     branch: fix-sdcore-config-interface-tests
 
-requirers: []
-  #- name: sdcore-amf-k8s
-  #  url: https://github.com/canonical/sdcore-amf-k8s-operator
-  #- name: sdcore-ausfr-k8s
+requirers:
+  - name: sdcore-amf-k8s
+    url: https://github.com/canonical/sdcore-amf-k8s-operator
+    branch: fix-sdcore-config-interface-tests
+  #- name: sdcore-ausf-k8s
   #  url: https://github.com/canonical/sdcore-ausf-k8s-operator
   #- name: sdcore-nrf-k8s
   #  url: https://github.com/canonical/sdcore-nrf-k8s-operator
