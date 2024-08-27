@@ -8,7 +8,7 @@ import json
 
 def test_no_data_on_created():
     t = Tester()
-    state_out = t.run("sdcore-config-relation-created")
+    t.run("sdcore-config-relation-created")
     t.assert_relation_data_empty()
 
 
@@ -23,7 +23,7 @@ def test_data_published_on_created():
             ],
         )
     )
-    state_out: State = t.run("sdcore-config-relation-created")
+    t.run("sdcore-config-relation-created")
     t.assert_relation_data_empty()
 
 
@@ -38,7 +38,7 @@ def test_data_published_on_joined():
             ],
         )
     )
-    state_out: State = t.run("sdcore-config-relation-joined")
+    t.run("sdcore-config-relation-joined")
     t.assert_schema_valid()
 
 
@@ -52,5 +52,5 @@ def test_no_data_on_broken():
     )
 
     t = Tester(State(relations=[relation]))
-    state_out: State = t.run("sdcore-config-relation-broken")
+    t.run("sdcore-config-relation-broken")
     t.assert_relation_data_empty()
