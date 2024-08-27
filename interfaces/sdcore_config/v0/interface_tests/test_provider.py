@@ -49,6 +49,7 @@ def test_no_data_on_broken():
     relation = Relation(
         endpoint="sdcore_config",
         interface="sdcore_config",
+        local_app_data={"webui_url": "some_url:123"},
     )
 
     t = Tester(State(relations=[relation]))

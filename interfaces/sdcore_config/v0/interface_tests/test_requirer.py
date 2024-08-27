@@ -17,7 +17,7 @@ def test_no_data_on_joined():
             ],
         )
     )
-    state_out: State = t.run('sdcore-config-relation-joined')   
+    t.run('sdcore-config-relation-joined')   
     t.assert_relation_data_empty()
 
 
@@ -33,7 +33,7 @@ def test_no_data_on_broken():
             ],
         )
     )
-    state_out: State = t.run('sdcore-config-relation-broken')
+    t.run('sdcore-config-relation-broken')
     t.assert_relation_data_empty()
 
 
